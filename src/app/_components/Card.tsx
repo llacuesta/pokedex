@@ -1,17 +1,9 @@
 // Imports
 import Image from 'next/image'
 import Type from './Type'
+import { Pokemon } from '@/lib/data'
 
-type cardProps = {
-  id: number,
-  name: string,
-  imgSrc: string,
-  types: {
-    name: string
-  }[]
-}
-
-export default function Card({ id, name, imgSrc, types }: cardProps) {
+export default function Card({ id, name, imgSrc, types }: Pokemon) {
   return (
     <div className='bg-slate-700 clip-border'>
       <div className="clip-inner bg-white p-3">
