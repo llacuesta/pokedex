@@ -1,10 +1,10 @@
 // Import
 import React from 'react'
 import Card from './Card'
-import { useFetchAllPokemon } from '@/api/hooks'
+import { useFetchPokemon } from '@/api/hooks'
 
 export default async function CardGrid() {
-  const data = await useFetchAllPokemon(151)
+  const data = await useFetchPokemon(10)
   
   return (
     <div className='grid grid-cols-4 gap-4'>
