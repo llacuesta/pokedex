@@ -6,7 +6,33 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    {
+      pattern: /bg-(normal|fire|fighting|water|flying|grass|poison|electric|ground|psychic|rock|ice|bug|dragon|ghost|dark|steel|fairy|white)/,
+    },
+  ],
   theme: {
+    colors: {
+      'normal': '#B8B9AB',
+      'fire': '#E95436',
+      'fighting': '#AE5B4B',
+      'water': '#6391CD',
+      'flying': '#7594CA',
+      'grass': '#8DC266',
+      'poison': '#A15B97',
+      'electric': '#F7CD55',
+      'ground': '#CFB262',
+      'psychic': '#EC6391',
+      'rock': '#B7A86D',
+      'ice': '#92D5F5',
+      'bug': '#AFBA42',
+      'dragon': '#6366AD',
+      'ghost': '#6568AD',
+      'dark': '#725649',
+      'steel': '#A3A3B3',
+      'fairy': '#DAB0D4',
+      'white': '#FFFFFF'
+    },
     container: {
       center: true,
       padding: "2rem",

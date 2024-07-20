@@ -1,10 +1,11 @@
 // Imports
 import Link from "next/link"
 import Image from "next/image"
+import React from "react"
 
-const Header = () => {
+export default function Header() {
   return (
-    <header className="flex p-4 px-12 bg-white/85 shadow-lg backdrop-blur-sm fixed w-full">
+    <header className="flex p-4 px-12 bg-white/80 shadow-lg backdrop-blur-sm fixed w-full" style={{ zIndex: "999" }}>
       <Link href="/" className="flex gap-4">
         {/* Logo */}
         <Image src="/pokedex.svg" alt="logo" width={50} height={50}/>
@@ -20,5 +21,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

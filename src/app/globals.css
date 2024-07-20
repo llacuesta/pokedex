@@ -11,3 +11,19 @@
     @apply scroll-smooth;
   }
 }
+
+@layer utilities {
+  .clip-border {
+    clip-path: polygon(100% 20%, 100% 100%, 20% 100%, 0 80%, 0 0, 80% 0);
+    border-bottom-right-radius: 2rem;
+    background: rgb(51,51,80);
+    background: linear-gradient(135deg, rgba(51,51,80,1) 25%, rgba(2,6,23,1) 100%);
+}
+
+  .clip-inner {
+    height: 95.5%;
+    width: 95%;
+    clip-path: polygon(100% 23%, 100% 100%, 23% 100%, 5% 82%, 5% 5%, 82% 5%);
+    border-bottom-right-radius: 1.25rem;
+  }
+}
