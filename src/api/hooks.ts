@@ -1,9 +1,9 @@
 // Imports
 import { HOST, Pokemon } from "@/lib/data";
 
-export const useFetchPokemon = async (limit?: number): Promise<Pokemon[]> => {
+export const fetchPokemon = async (page: number): Promise<Pokemon[]> => {
     // request pokemon list
-    const res = await fetch(`${HOST}pokemon?limit=${limit || 10000}`);
+    const res = await fetch(`${HOST}pokemon?limit=10&offset=${page * 10}`);
     if (!res.ok) {
         throw new Error('Error! Unable to fetch data.')
     }

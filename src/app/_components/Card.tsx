@@ -6,7 +6,7 @@ import { Pokemon } from '@/lib/data'
 export default function Card({ id, name, imgSrc, types }: Pokemon) {
   return (
     <div className='bg-slate-700 clip-border'>
-      <div className="clip-inner bg-white p-3">
+      <div className="clip-inner bg-white p-3 overflow-hidden">
         <div className='relative w-[400px]'>
           <Image 
             src="/pokeball.svg" 

@@ -4,6 +4,7 @@ import "./globals.css";
 
 // Components
 import Header from "./_components/Header";
+import QueryProvider from "./_providers/QueryProvider";
 
 // Font
 const jetbrains = JetBrains_Mono({ 
@@ -26,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetbrains.className}>
-        <Header />
-        {children}
+        <QueryProvider>
+          <Header />
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
