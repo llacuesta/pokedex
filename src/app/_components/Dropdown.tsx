@@ -1,41 +1,32 @@
 "use client";
 
 // Imports
-import { cn } from "@/lib/utils";
-import React, { useState, Dispatch, SetStateAction } from "react";
+import { cn } from '@/lib/utils';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandList, CommandItem, CommandGroup } from "@/components/ui/command";
 import { ChevronDown } from "lucide-react";
-import { SortOption } from "@/lib/data";
+import { Option } from '@/lib/data';
 
 type Props = {
-  "sortBy": SortOption,
-  "setSortBy": Dispatch<SetStateAction<SortOption>>
+  "title": string,
+  "state": Option,
+  "setState": Dispatch<SetStateAction<Option>>,
+  "dropdownOptions": Option[]
 }
 
-const sortOptions: SortOption[] = [
-  {
-    "value": "id",
-    "label": "ID"
-  },
-  {
-    "value": "name",
-    "label": "Name"
-  }
-]
-
-export default function Sort({ sortBy, setSortBy }: Props) {
+export default function Dropdown({ title, state, setState, dropdownOptions }: Props) {
   const [open, setOpen] = useState<boolean>(false)
-
+  
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm">Sort by</span>
+      <span className="text-sm">{title}</span>
       <Popover open={open} onOpenChange={setOpen}>
         {/* Button to open dropdown */}
         <PopoverTrigger asChild>
           <Button className="flex hover:bg-gray justify-between items-center w-24 px-3 py-1 border rounded-md">
-            {sortBy.label}
+            {state.label}
             <ChevronDown size={20} />
           </Button>
         </PopoverTrigger>
@@ -45,17 +36,17 @@ export default function Sort({ sortBy, setSortBy }: Props) {
           <Command>
             <CommandList>
               {
-                sortOptions.map((option, index) => (
+                dropdownOptions.map((option, index) => (
                   <CommandItem 
                     key={index} 
                     value={option.value}
                     onSelect={(value) => {
-                      setSortBy(
-                        sortOptions.find((item) => item.value === value) || { "value": "id", "label": "ID" }
+                      setState(
+                        dropdownOptions.find((item) => item.value === value) || { "value": "id", "label": "ID" }
                       )
                       setOpen(false)
                     }}
-                    className={cn("hover:bg-gray", sortBy.value === option.value ? "bg-gray" : "")}
+                    className={cn("hover:bg-gray", state.value === option.value ? "bg-gray" : "")}
                   >
                     {option.label}
                   </CommandItem>
