@@ -35,7 +35,7 @@ export default function CardGrid() {
       {
         status === 'pending' ? (
           <div className='h-4/5 flex flex-col justify-center items-center gap-4'>
-            <Image src="/pokeball.svg" alt="loading" width={100} height={100}/>
+            <Image className='animate-spin' src="/pokeball.svg" alt="loading" width={100} height={100}/>
             <span className='text-lg leading-none'>Loading...</span>
           </div>
         ) : status === 'error' ? (
@@ -64,7 +64,7 @@ export default function CardGrid() {
               {
                 isFetchingNextPage ? (
                   <div className='flex flex-col justify-center items-center gap-4 mb-16'>
-                    <Image src="/pokeball.svg" alt="loading" width={100} height={100}/>
+                    <Image className="aniamte-spin" src="/pokeball.svg" alt="loading" width={100} height={100}/>
                     <span className='text-lg leading-none'>Loading more...</span>
                   </div>
                 ) : !hasNextPage ? (
