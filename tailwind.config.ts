@@ -31,7 +31,8 @@ const config: Config = {
       'dark': '#725649',
       'steel': '#A3A3B3',
       'fairy': '#DAB0D4',
-      'white': '#FFFFFF'
+      'white': '#FFFFFF',
+      'gray': '#E5E5E5'
     },
     container: {
       center: true,

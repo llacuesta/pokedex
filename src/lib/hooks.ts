@@ -20,6 +20,6 @@ export const fetchPokemon = async (page: number): Promise<Pokemon[]> => {
             types: data.types.map((type: any) => ({ name: type.type.name }))
         })
     }))
-
+    
     return pokemonList
 }
