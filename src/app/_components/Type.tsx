@@ -6,6 +6,6 @@ type Props = {
 
 export default function Type({ type }: Props) {
   return (
-    <div className={`text-sm px-2 rounded-full text-white bg-${type}`}>{type.toUpperCase()}</div>
+    <div className={`text-sm px-3 py-0.5 rounded-full text-white bg-${type}`}>{type.toUpperCase()}</div>
   )
 }

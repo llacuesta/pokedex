@@ -85,27 +85,28 @@ export default function CardGrid() {
               fetchedPokemon.filter((pokemon) => (
                 pokemon[filterBy.value].toString().includes(search) || search === ""
               )).length == 0 ? (
-                <div className='h-full flex flex-col justify-center items-center gap-4 mb-16'>
+                <div className='h-full flex flex-col justify-center items-center gap-4 pb-24'>
                   <Image src="/pokeball-open.svg" alt="loading" width={100} height={100}/>
                   <span className='text-lg leading-none'>No Pokémon found</span>
                 </div>
               ) : (
-                <div className='grid grid-cols-4 gap-6 mb-16'>
+                <div className='grid grid-cols-4 gap-6 pb-24'>
                   {fetchedPokemon.filter((pokemon) => (
                     pokemon[filterBy.value].toString().includes(search) || search === ""
                   )).map((pokemon, index) => (
                     <Card 
-                      key={index} 
+                      key={index}
                       id={pokemon.id} 
                       name={pokemon.name} 
                       imgSrc={pokemon.imgSrc} 
                       types={pokemon.types}
+                      href={`/pokemon/${pokemon.name}`}
                     />
                   ))}
                 </div>
               )
             }
-            <div className='h-[200px]' ref={ref}>
+            <div ref={ref}>
               {
                 isFetchingNextPage ? (
                   <div className='flex flex-col justify-center items-center gap-4 mb-16'>
