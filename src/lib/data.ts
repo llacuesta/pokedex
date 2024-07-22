@@ -35,6 +35,12 @@ export interface PokemonDetails {
     next: number
 }
 
+export interface PokemonPreview {
+    id: number,
+    name: string,
+    sprite: string
+}
+
 export interface Option {
     value: string,
     label: string

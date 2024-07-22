@@ -10,31 +10,45 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
   return (
     <>
       <div className="w-full flex gap-8">
+        
+        {/* left side */}
         <div className='flex flex-col w-[40%]'>
+          {/* pokemon name + id */}
           <div className="flex gap-4 items-end">
             <span className='text-5xl font-extrabold'>{pokemon.name.toUpperCase()}</span>
             <span className='text-2xl'>{`${pokemon.id.toString().padStart(4, "0")}`}</span>
           </div>
+
+          {/* types */}
           <div className='flex gap-2 py-2'>
             {pokemon.types.map((type, index) => (
               <Type key={index} type={type.name}/>
             ))}
           </div>
+
+          {/* image */}
           <div className='flex flex-col items-center p-4'>
             <Image src={pokemon.imgSrc} alt={`Image of ${pokemon.name}`} width={350} height={350} />
             <span className='text-md leading-none capitalize italic'>{`${pokemon.name}, the ${pokemon.genus}`}</span>
           </div>
           <Separator className='border border-gray'/>
+
+          {/* entry */}
           <div className='flex flex-col gap-2 pt-4'>
             <span className='text-2xl font-bold'>Pokédex Entry</span>
             <span className='text-sm'>{pokemon.flavorText}</span>
           </div>
         </div>
+
+        {/* right side */}
         <div className='flex flex-col w-[60%] gap-4'>
-          <div className='flex flex-col gap-2'>
+          <div className='flex flex-col'>
             <span className='text-2xl font-bold'>Pokémon Data</span>
             <div className='flex flex-col gap-4'>
+
+              {/* abilities and appearance */}
               <div className='flex gap-4'>
+                {/* abilities */}
                 <div className='flex flex-col gap-2'>
                   <span className='text-lg font-bold'>Abilities</span>
                   <div className='flex gap-2'>
@@ -48,6 +62,8 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                     ))}
                   </div>
                 </div>
+
+                {/* appearance */}
                 <div className='flex flex-col gap-2'>
                   <span className='text-lg font-bold'>Appearance</span>
                   <div className='flex gap-2'>
@@ -62,6 +78,8 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                   </div>
                 </div>                
               </div>
+
+              {/* base stats */}
               <div className='flex flex-col gap-2'>
                 <span className='text-lg font-bold'>Base Stats</span>
                 <div className='flex flex-col gap-2'>
@@ -74,9 +92,13 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                   ))}
                 </div>
               </div>
+
+              {/* type matchups */}
               <div className='flex flex-col gap-2'>
                 <span className='text-lg font-bold'>Type Matchups</span>
                 <div className='flex flex-row gap-4'>
+
+                  {/* resisted by */}
                   <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4'>
                     <span>Resisted by </span>
                     <span className='text-xs leading-none pt-1'>This pokémon deals less or no damage to these types</span>
@@ -86,6 +108,8 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                       ))}
                     </div>
                   </div>
+
+                  {/* weak against */}
                   <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4'>
                     <span>Weak against </span>
                     <span className='text-xs leading-none pt-1'>This pokémon receives more damage from these types</span>

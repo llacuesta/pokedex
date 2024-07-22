@@ -15,7 +15,7 @@ const jetbrains = JetBrains_Mono({
 
 // Metadata
 export const metadata: Metadata = {
-  title: "Pokédex | A Pokémon Index",
+  title: "Pokédex",
   description: "A Pokémon Database for useful information about Pokémon.",
 };
 

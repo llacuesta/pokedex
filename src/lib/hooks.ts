@@ -1,5 +1,5 @@
 // Imports
-import { HOST, Pokemon, PokemonDetails } from "@/lib/data";
+import { HOST, Pokemon, PokemonDetails, PokemonPreview } from "@/lib/data";
 import { determineTypeWeakness, abbreviateStat } from "./utils";
 
 export const fetchPokemon = async (page: number): Promise<Pokemon[]> => {
@@ -62,8 +62,6 @@ export const fetchPokemonDetails = async (name: string): Promise<PokemonDetails>
         weakAgainst: determineTypeWeakness(pokemonData.types.map((type: any) => (
             type.type.name
         ))).weakAgainst,
-        // weakTo: ["flying", "poison", "bug", "steel", "fire", "grass", "dragon"],
-        // weakAgainst: ["flying", "poison", "bug", "fire", "ice"],
         abilities: pokemonData.abilities.map((ability: any) => (
             { 
                 isHidden: ability.is_hidden, 
@@ -77,5 +75,20 @@ export const fetchPokemonDetails = async (name: string): Promise<PokemonDetails>
         imgSrc: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonData.id.toString().padStart(3, "0")}.png`,
         prev: pokemonData.id - 1,
         next: pokemonData.id + 1
+    })
+}
+
+export const fetchPokemonPreview = async (id: number): Promise<PokemonPreview> => {
+    // fetch pokemon detail
+    const pokemon = await fetch(`${HOST}pokemon/${id}`);
+    if (!pokemon.ok) {
+        throw new Error('Error! Unable to fetch data.')
+    }
+    const pokemonData = await pokemon.json()
+
+    return ({
+        id: pokemonData.id,
+        name: pokemonData.name,
+        sprite: pokemonData.sprites.front_default
     })
 }
