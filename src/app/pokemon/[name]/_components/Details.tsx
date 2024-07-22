@@ -9,8 +9,10 @@ import { Progress } from '@/components/ui/progress'
 export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
   return (
     <>
-      <div className="w-full flex gap-8">
-        
+      <div className="w-full flex gap-8 relative">
+        <Image src="/pokeball.svg" alt='pokeball' width={800} height={800} className='animate-spin-slow absolute opacity-25 -left-[20rem] -top-[25rem]' style={{ zIndex: "-10" }}/>
+        <span className='text-[18rem] font-black absolute opacity-25 bottom-5 -right-[16rem] leading-none' style={{ zIndex: "-10" }}>{`${pokemon.id.toString().padStart(4, "0")}`}</span>
+
         {/* left side */}
         <div className='flex flex-col w-[40%]'>
           {/* pokemon name + id */}
@@ -99,7 +101,7 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                 <div className='flex flex-row gap-4'>
 
                   {/* resisted by */}
-                  <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4'>
+                  <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4 bg-white/60 backdrop-blur-sm'>
                     <span>Resisted by </span>
                     <span className='text-xs leading-none pt-1'>This pokémon deals less or no damage to these types</span>
                     <div className='flex flex-wrap gap-2 pt-4'>
@@ -110,7 +112,7 @@ export default function Details({ pokemon }: { pokemon: PokemonDetails }) {
                   </div>
 
                   {/* weak against */}
-                  <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4'>
+                  <div className='w-1/2 flex flex-col border border-gray rounded-lg shadow-lg p-4 bg-white/60 backdrop-blur-sm'>
                     <span>Weak against </span>
                     <span className='text-xs leading-none pt-1'>This pokémon receives more damage from these types</span>
                     <div className='flex flex-wrap gap-2 pt-4'>
