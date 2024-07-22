@@ -25,14 +25,14 @@ export default function Dropdown({ title, state, setState, dropdownOptions }: Pr
       <Popover open={open} onOpenChange={setOpen}>
         {/* Button to open dropdown */}
         <PopoverTrigger asChild>
-          <Button className="flex hover:bg-gray justify-between items-center w-24 px-3 py-1 border rounded-md">
+          <Button className="flex hover:bg-gray justify-between items-center w-24 px-3 rounded-none">
             {state.label}
             <ChevronDown size={20} />
           </Button>
         </PopoverTrigger>
 
         {/* Content */}
-        <PopoverContent className="p-1 w-24" side="bottom" align="end">
+        <PopoverContent className="p-1 w-24 rounded-none" side="bottom" align="end">
           <Command>
             <CommandList>
               {
@@ -46,7 +46,7 @@ export default function Dropdown({ title, state, setState, dropdownOptions }: Pr
                       )
                       setOpen(false)
                     }}
-                    className={cn("hover:bg-gray", state.value === option.value ? "bg-gray" : "")}
+                    className={cn("hover:bg-gray rounded-none", state.value === option.value ? "bg-gray" : "")}
                   >
                     {option.label}
                   </CommandItem>
