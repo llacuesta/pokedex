@@ -2,6 +2,7 @@
 import { fetchPokemonDetails, fetchPokemonPreview } from "@/lib/hooks"
 import Details from "./_components/Details"
 import Navigator from "./_components/Navigator"
+import { notFound } from 'next/navigation'
 
 type Props = {
   params: { name: string }
@@ -15,6 +16,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function page({ params }: Props) {
   const pokemon = await fetchPokemonDetails(params.name)
+  if (!pokemon) {
+    notFound()
+  }
+
   const previous = (pokemon.prev > 0) ? await fetchPokemonPreview(pokemon.prev) : undefined
   const next = (pokemon.prev < 10277) ? await fetchPokemonPreview(pokemon.next) : undefined
 

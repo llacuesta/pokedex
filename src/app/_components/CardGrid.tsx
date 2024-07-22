@@ -86,7 +86,7 @@ export default function CardGrid() {
                 pokemon[filterBy.value].toString().includes(search) || search === ""
               )).length == 0 ? (
                 <div className='h-full flex flex-col justify-center items-center gap-4 pb-24'>
-                  <Image src="/pokeball-open.svg" alt="loading" width={100} height={100}/>
+                  <Image src="/pokeball-open.svg" alt="no-results" width={100} height={100}/>
                   <span className='text-lg leading-none'>No Pokémon found</span>
                 </div>
               ) : (
@@ -115,7 +115,7 @@ export default function CardGrid() {
                   </div>
                 ) : !hasNextPage ? (
                   <div className='flex flex-col justify-center items-center gap-4 mb-16'>
-                    <Image src="/pokeball-open.svg" alt="loading" width={100} height={100}/>
+                    <Image src="/pokeball-open.svg" alt="no-result" width={100} height={100}/>
                     <span className='text-lg leading-none'>No more Pokémon left</span>
                   </div>
                 ) : <></>

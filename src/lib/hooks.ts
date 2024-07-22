@@ -25,18 +25,18 @@ export const fetchPokemon = async (page: number): Promise<Pokemon[]> => {
     return pokemonList
 }
 
-export const fetchPokemonDetails = async (name: string): Promise<PokemonDetails> => {
+export const fetchPokemonDetails = async (name: string): Promise<PokemonDetails | undefined> => {
     // fetch pokemon detail
     const pokemon = await fetch(`${HOST}pokemon/${name}/`);
     if (!pokemon.ok) {
-        throw new Error('Error! Unable to fetch data.')
+        return undefined
     }
     const pokemonData = await pokemon.json()
 
     // fetch species detail
     const species = await fetch(`${HOST}pokemon-species/${name}/`);
     if (!species.ok) {
-        throw new Error('Error! Unable to fetch data.')
+        return undefined
     }
     const speciesData = await species.json()
 
